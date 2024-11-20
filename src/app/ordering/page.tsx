@@ -103,9 +103,13 @@ const OrderingPage: React.FC = () => {
                                     </button>
                                     <p className="ml-2 mt-3 text-xs font-bold">박스</p> 
                                 </div>
-                                <p className="mt-1 text-xs text-gray-400 font-bold bullet-point">최대 20박스까지 입력가능합니다.</p>
+                                <p className="mt-1 text-xs text-gray-400 font-bold bullet-point">
+                                    최대 20박스까지 입력가능합니다.
+                                </p>
                             </div>
-                            <p className="mt-12 mb-2 text-xs font-extrabold">배송지<span className="red-asterisk"> *</span></p>
+                            <p className="mt-12 mb-2 text-xs font-extrabold">
+                                배송지<span className="red-asterisk"> *</span>
+                            </p>
                             <div>
                                 <input 
                                   type="text"
@@ -117,7 +121,9 @@ const OrderingPage: React.FC = () => {
                         </div>
                         <div className="flex flex-col">
                             <div>
-                                <p className="mb-2 text-xs font-extrabold">제품명<span className="red-asterisk"> *</span></p>
+                                <p className="mb-2 text-xs font-extrabold">
+                                    제품명<span className="red-asterisk"> *</span>
+                                </p>
                                 <FilterBox 
                                 options={productOptions}
                                 placeholder="제품 선택"
@@ -125,7 +131,9 @@ const OrderingPage: React.FC = () => {
                                 selectedOption={selectedProductOption}
                                 />
                             </div>
-                            <p className="mt-6 mb-2 text-xs font-extrabold">담당자정보<span className="red-asterisk"> *</span></p>
+                            <p className="mt-6 mb-2 text-xs font-extrabold">
+                                담당자정보<span className="red-asterisk"> *</span>
+                            </p>
                             <div className="input-container">
                                 <textarea 
                                 value=""
@@ -134,7 +142,9 @@ const OrderingPage: React.FC = () => {
                                 rows={4}
                                 />
                             </div>
-                            <p className="mt-3 mb-2 text-xs font-extrabold">추가요청사항</p>
+                            <p className="mt-3 mb-2 text-xs font-extrabold">
+                                추가요청사항
+                            </p>
                             <div className="input-container">
                                 <textarea
                                     value={text}

@@ -22,18 +22,26 @@ const LoginPage = () => {
   const handleLogin = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    try {
-      if (username === 'admin' && password === '1111') {
-        router.push('/ordering');
-        return;
-      }
-      const errorMessage = '아이디 또는 비밀번호가 유효하지 않습니다';
-      setError(errorMessage);
-      alert(errorMessage); 
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : '에러가 발생하였습니다'; 
-      setError(errorMessage);
-      alert(error);
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      console.log('Login successful:', data);
+    } else {
+      console.error('Login failed:', data);
+    }
+
+    if (data.success) {
+      router.push('/ordering');
+    } else {
+      setError(data.message);
+      alert(data.message);
     }
   };
 

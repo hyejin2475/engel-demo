@@ -33,7 +33,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({ options, placeholder }) => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      console.log('click event');
     };
   }, []);
 
