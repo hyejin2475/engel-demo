@@ -24,13 +24,13 @@ export async function POST(request: Request) {
       console.log('Found user:', users);
   
       if (!users) {
-          return NextResponse.json({ message: "Invalid id", success: false}, { status: 401 });
+          return NextResponse.json({ message: "Invalid id", success: false }, { status: 401 });
       }
   
-      //const isPasswordValid = await bcrypt.compare(password, users.password);  // 입력된 비밀번호과 DB에 저장된 해시된 비밀번호를 비교
+      //const isPasswordValid = await bcrypt.compare(password, users.password);  // 입력된 비밀번호와 DB에 저장된 해시된 비밀번호를 비교
       const isPasswordValid = (password === users.password);
-      //console.log("inserted pw:", password);
-      //console.log("hashed pw:", users.password);
+      console.log("inserted pw:", password);
+      console.log("hashed pw:", users.password);
 
       if (!isPasswordValid) {
           return NextResponse.json({ message: 'Invalid password', success: false }, { status: 401 });
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   }
 
 
-  // 테스트용
+  // GET 테스트용
   export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const username = searchParams.get('username');
